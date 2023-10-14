@@ -21,4 +21,34 @@ public class EmployeeServiceImpl implements EmployeeService{
 		return mysql.findAll();
 	}
 
+	@Override
+	public Employee saveEmployeeDetails(Employee emp) {
+		mysql.save(emp);
+		
+		return emp; 
+	}
+
+	@Override
+	public Employee updateEmployeeDetails(Employee emp) {
+	
+		Employee empUpdate = mysql.findById(emp.getEmpId()).get();
+		              
+		empUpdate.setEmpFirstName(emp.getEmpFirstName());  
+		empUpdate.setEmpLastName( emp.getEmpLastName());         
+		empUpdate.setEmpContact( emp.getEmpContact());         
+		empUpdate.setEmpAddress(emp.getEmpAddress());        
+		empUpdate.setEmpLocation(emp.getEmpLocation());         
+		empUpdate.setEmpSalary(emp.getEmpSalary());        
+		
+		Employee save = mysql.save(emp);         
+		return save;
+	}
+
+	@Override
+	public void deleteEmployeeDetails(Integer id) {
+		
+		mysql.deleteById(id);
+
+	}
+
 }

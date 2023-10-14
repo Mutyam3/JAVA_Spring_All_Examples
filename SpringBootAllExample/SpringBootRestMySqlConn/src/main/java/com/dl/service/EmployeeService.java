@@ -10,7 +10,9 @@ public interface EmployeeService {
 	
 	List<Employee>findAllEmployeeDetails();
 
+	Employee saveEmployeeDetails(Employee emp);
 	
+	Employee updateEmployeeDetails(Employee emp);
 	
-	
+	void deleteEmployeeDetails(Integer id);
 }
